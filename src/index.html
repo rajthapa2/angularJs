@@ -7,22 +7,19 @@
 	<link rel="stylesheet" type="text/css" href="css/todo.css">
 </head>
 <body>
-	<div ng-controller="TodoController">
-		<h2>total todos: {{totalToDos}}</h2>
+	<div ng-controller="TodoController" class="container">
+		<h2>total todos: {{getTotalTodos()}}</h2>
 		<ul class="list-unstyled">
 			<li ng-repeat="todo in todos">
 				<input type="checkbox" ng-model="todo.done">
 				<span class="done-{{todo.done}}">{{todo.text}}</span>
+				<span ng-click="removeTodo(todo)"class="glyphicon glyphicon-remove"></span>
 			</li>
 			<form class ="form-horizontal">
 				<input type="text"ng-model="formTodoText" ng-model-instant />
 
 				<button class="btn" ng-click=addTodo()>Add</button>
 			</form>
-
-			
-
-
 		</ul>
 	</div>
 </body>
