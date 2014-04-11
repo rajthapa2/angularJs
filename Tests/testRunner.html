@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Jasmine Tests</title>
+    <!--        jasmine libs-->
+    <link rel="stylesheet" type="text/css" href="../Tests/libs/Jasmine/css/jasmine.css" />
+    <script type="text/javascript" src="../Tests/libs/Jasmine/Scripts/jasmine.js"></script>
+    <script type="text/javascript" src="../Tests/libs/Jasmine/Scripts/jasmine-jsreporter.js"></script>
+    <script type="text/javascript" src="../Tests/libs/Jasmine/Scripts/jasmine-html.js"></script>
+
+    <!--    include source files-->
+    <script type="text/javascript" src="../Web/libs/angularjs/angularjs.js"></script>
+    <script type="text/javascript" src="../Web/src/js/todo.js"></script>
+    <!--        include specs here-->
+    <script type="text/javascript" src="Specs/TodoSpec.js"></script>
+    <script type="text/javascript">
+        (function () {
+            var jasmineEnv = jasmine.getEnv();
+
+            // Register reporters
+            jasmineEnv.addReporter(new jasmine.TrivialReporter());              //< for html
+            jasmineEnv.addReporter(new jasmine.JSReporter());                   //< for jsreporter
+            jasmineEnv.updateInterval = 1000;
+
+            // Launch test on "window.body.onload"
+            if (window.attachEvent) {
+                window.attachEvent("onload", function () {     //< IE
+                    setTimeout(function () {
+                        jasmine.getEnv().execute();
+                    }, 50);
+                });
+            } else {
+                window.addEventListener("load", function () {  //< everything else
+                    setTimeout(function () {
+                        jasmine.getEnv().execute();
+                    }, 50);
+                }, false);
+            }
+        })();
+    </script>
+
+</head>
+<body>
+</body>
+</html>
