@@ -8,7 +8,9 @@ function TodoController($scope) {
 
 
     $scope.addTodo = function () {
-        //add some tests around it
+        if ($scope.formTodoText === '') {
+            return;
+        }
         $scope.todos.push({ text: $scope.formTodoText, done: false });
         $scope.formTodoText = '';
     };
