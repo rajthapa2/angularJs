@@ -1,4 +1,4 @@
-<html ng-app>
+<html ng-app="todoApp">
 <head>
 	<title>ToDoApp</title>
     <script src="../libs/angularjs/angularjs.js"></script>
@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/todo.css">
 </head>
 <body>
-	<div ng-controller="TodoController" class="container">
+	<div ng-controller="todoApp" class="container">
 		<h2>total todos: {{getTotalTodos()}}</h2>
 		<ul class="list-unstyled">
 			<li ng-repeat="todo in todos">
@@ -16,11 +16,9 @@
 				<span ng-click="removeTodo(todo)"class="glyphicon glyphicon-remove"></span>
 			</li>
 			<form class ="form-horizontal">
-				<input type="text"ng-model="formTodoText" ng-model-instant />
-
+				<input type="text" ng-model= "formTodoText" />
 			    <button class="btn" ng-click=addTodo()>Add</button>
-			    <br />
-			    <br />
+                <p class="warning" ng-show ="displayErrorMessage ==true">Please give a name</p>
 			    <br />
 				<button class="btn" ng-click=clearDoneTodos()>Clear Done Tasks</button>
 			</form>

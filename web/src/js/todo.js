@@ -1,4 +1,6 @@
-function TodoController($scope) {
+var myApp = angular.module('todoApp', []);
+
+myApp.controller('todoApp', ['$scope', function ($scope) {
     $scope.todos = [{ text: 'Learn AngularJs', done: false },
     { text: 'Create an App', done: true }];
 
@@ -6,11 +8,16 @@ function TodoController($scope) {
         return $scope.todos.length;
     };
 
+    $scope.displayErrorMessage = false;
+
+    $scope.formTodoText = "";
 
     $scope.addTodo = function () {
         if ($scope.formTodoText === '') {
-            return;
+            $scope.displayErrorMessage = true;
+            return false;
         }
+        $scope.displayErrorMessage = false;
         $scope.todos.push({ text: $scope.formTodoText, done: false });
         $scope.formTodoText = '';
     };
@@ -28,4 +35,4 @@ function TodoController($scope) {
             }
         }
     };
-}
+}]);
