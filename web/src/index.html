@@ -17,10 +17,10 @@
 			</li>
 			<form class ="form-horizontal">
 				<input type="text" ng-model= "formTodoText" />
-			    <button class="btn" ng-click=addTodo()>Add</button>
+			    <button class="btn btn-primary" ng-click=addTodo()>Add</button>
                 <p class="warning" ng-show ="displayErrorMessage ==true">Please give a name</p>
 			    <br />
-				<button class="btn" ng-click=clearDoneTodos()>Clear Done Tasks</button>
+				<button class="btn btn-warning" ng-click=clearDoneTodos()>Clear Done Tasks</button>
 			</form>
 		</ul>
 	</div>
