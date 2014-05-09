@@ -1,8 +1,9 @@
-var myApp = angular.module('todoApp', []);
-
-myApp.controller('todoApp', ['$scope', function ($scope) {
-    $scope.todos = [{ text: 'Learn AngularJs', done: false },
-    { text: 'Create an App', done: true }];
+//controller
+app.controller('todoApp', function ($scope) {
+    $scope.todos = [
+        { text: 'Learn AngularJs', done: false },
+        { text: 'Create an App', done: true }
+    ];
 
     $scope.getTotalTodos = function () {
         return $scope.todos.length;
@@ -35,4 +36,4 @@ myApp.controller('todoApp', ['$scope', function ($scope) {
             }
         }
     };
-}]);
+});
