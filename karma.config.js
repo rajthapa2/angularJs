@@ -30,9 +30,7 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-    
-    },
+      preprocessors : {'Web/src/js/*.js': ['coverage']},
 
 
     // test results reporter to use
@@ -69,8 +67,6 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
-	
-    preprocessors : {'Web/src/js/*.js': ['coverage']},
 
     coverageReporter: {
       type : 'lcov',

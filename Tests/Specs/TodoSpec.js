@@ -15,6 +15,15 @@
         it("should have a empty formText", function () {
             expect(scope.formTodoText).toBe("");
         });
+        it("should return a number of todos in array", function(){
+            var todoTask1 = {text:"learn how to do jasmine",done:"false"};
+            var todoTask2 = {text:"learn how to use webstrom",done:"false"};
+            scope.todos.push(todoTask1);
+            scope.todos.push(todoTask2);
+            var result = scope.getTotalTodos();
+            expect(result).toBe(4);
+        });
+
     });
 });
 

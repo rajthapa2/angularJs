@@ -2,3 +2,4 @@ node_modules/**/
 nod_modules/
 *.userprefs
 coverage/
+.idea/
