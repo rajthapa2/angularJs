@@ -12,9 +12,11 @@
                 '$scope': scope
             });
         }));
+
         it("should have a empty formText", function () {
             expect(scope.formTodoText).toBe("");
         });
+
         it("should return a number of todos in array", function(){
             var todoTask1 = {text:"learn how to do jasmine",done:"false"};
             var todoTask2 = {text:"learn how to use webstrom",done:"false"};
@@ -24,7 +26,19 @@
             expect(result).toBe(4);
         });
 
+        it("should remove the selected todo form the array", function(){
+            scope.todos.splice(0,scope.todos.length);
+            var todo = {text: "learn angularJs", done:false};
+            scope.todos.push(todo);
+
+            scope.removeTodo(todo);
+
+            expect(scope.todos.length).toBe(0);
+        });
+
+
     });
+
 });
 
 
