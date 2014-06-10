@@ -36,6 +36,40 @@
             expect(scope.todos.length).toBe(0);
         });
 
+        it("should add a todo in the todosArray", function(){
+            scope.todos.splice(0, scope.todos.length);
+
+            scope.formTodoText = "Learn webstrom";
+            scope.addTodo();
+            expect(scope.todos.length).toBe(1);
+            expect(scope.displayErrorMessage).toBeFalsy();
+
+        });
+
+        it("should not add a todo if the formTodoText is empty", function(){
+           scope.todos.splice(0, scope.todos.length);
+
+           scope.formTodoText = "";
+           scope.addTodo();
+           expect(scope.todos.length).toBe(0);
+            expect(scope.displayErrorMessage).toBeTruthy();
+        });
+
+        it("should clear the done task from the todosArray", function(){
+            scope.todos.splice(0, scope.todos.length);
+
+            var todo1 = {task:"learning karma", done: true};
+            var todo2 = {task:"learning webstrom", done: false};
+            var todo3 = {task:"learn sonar", done: true};
+
+            scope.todos.push(todo1);
+            scope.todos.push(todo2);
+            scope.todos.push(todo3);
+
+            scope.clearDoneTodos();
+            expect(scope.todos.length).toBe(1);
+            expect(scope.todos[0].task).toBe("learning webstrom")
+        });
 
     });
 
